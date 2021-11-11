@@ -16,6 +16,18 @@ struct AddBookView: View {
     @State private var rating = 3
     @State private var genre = ""
     @State private var review = ""
+    @State private var date: Date?
+    
+    var fechaFormateada: String {
+        if let fecha = date {
+        let  formateador = DateFormatter()
+        formateador.dateStyle = .short
+        return formateador.string(from: fecha)
+        } else {
+            return "N/A"
+        }
+    }
+    
     
     let genres = ["Fantasy","Horror","Kids","Mistery","Romance","Thriller","No Genre"]
     
@@ -33,6 +45,7 @@ struct AddBookView: View {
                     }
                 }
                 Section {
+                    Text(fechaFormateada)
                     RatingView(rating: $rating)
                     TextField("Escribe una reseña", text: $review)
                 }
@@ -45,6 +58,7 @@ struct AddBookView: View {
                         newBook.rating = Int16(self.rating)
                         newBook.genre = self.genre
                         newBook.review = self.review
+                        newBook.date = self.date
                         
                         try? self.moc.save()
                         

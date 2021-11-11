@@ -41,6 +41,7 @@ struct DetailView: View {
                 
                 RatingView(rating: .constant(Int(book.rating)))
                     .font(.largeTitle)
+                Text("Fecha: ?PENDIENTE?")
             }
             .alert(isPresented: $showingDeleteAlert) {
                 Alert(title: Text("Borrar libro"), message: Text("¿Estás seguro?"), primaryButton: .destructive(Text("Borrar")) {
