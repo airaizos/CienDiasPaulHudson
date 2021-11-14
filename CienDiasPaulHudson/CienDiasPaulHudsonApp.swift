@@ -68,6 +68,24 @@ struct PaginaPrincipal: View {
                     })
                     
                 }
+                Section {
+                    NavigationLink (destination: UniqueObjectsConstraints(),
+                                    label: {
+                        Text("Listado Wizards")
+                    })
+                    NavigationLink (destination: FilteringUsingNSPredicate(),
+                                    label: {
+                        Text("FilteringUsingNSPredicate")
+                    })
+                    NavigationLink (destination: DinamicallyFiltering(),
+                                    label: {
+                        Text("DinamicallyFiltering")
+                    })
+                    NavigationLink ( destination: RelationshipsWithCoreData(),
+                                     label: {
+                        Text("RelationshipsWithCoreData")
+                    })
+                }
             }
         }
     }
